@@ -21,5 +21,5 @@ Sources: [[1]](#sources), [[2]](#sources).
 
 
 ## Sources
-[1]: [How to fix device permissions for the USBasp programmer - Andreas Rohner](https://andreasrohner.at/posts/Electronics/How-to-fix-device-permissions-for-the-USBasp-programmer/)
+[1]: [How to fix device permissions for the USBasp programmer - Andreas Rohner](https://andreasrohner.at/posts/Electronics/How-to-fix-device-permissions-for-the-USBasp-programmer/)  
 [2]: [gist: arturcieslak/50-embedded_devices.rules](https://gist.github.com/arturcieslak/f097ad370d1fc90ba98a)
