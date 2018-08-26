@@ -1,7 +1,8 @@
-# attiny10-notes
-These notes refer to the usage of the USBasp programmer with avr-gcc, avr-libc and avrdude on a linux system to compile and upload programs to an attiny10 microcontroller. With little modifications, the same notes will apply also to attiny4/5/9.
+# ATtiny10-notes
+These notes refer to the usage of the USBasp programmer with avr-gcc, avr-libc and avrdude on a linux system to compile and upload programs to an ATtiny10 microcontroller. With little modifications, the same notes will probably apply also to ATtiny4 and ATtiny5.
 
 ## Setting up the USBasp programmer
+ATtinys use the TPI interface for programming. Make sure to have your usbasp updated to the latest firmware, otherwise TPI is not supported.  
 At the first connection of the USBasp programmer to your computer you won't have the permissions to use it.  
 The way i solved this is to add an udev rule for the USBasp.  
 
@@ -41,7 +42,7 @@ See [The GCC reference for warning options](https://gcc.gnu.org/onlinedocs/gcc/W
 At some point in spacetime you will at least want to check what's happening under the hood.
 You can do this in multiple ways. I found that the way that i prefer is:  
 ```
-avr-gcc -Os -g -D__AVR_ATtiny10__ -Wa,-adhln -mmcu=attiny10 $MYPROGRAM
+avr-gcc -Os -g -Wa,-adhln -mmcu=attiny10 $MYPROGRAM
 ```
 It meshes the assembly lines with the c lines, so that you can see what's beeing compiled to what.
 
@@ -83,13 +84,13 @@ Compiling without optimization didn't work. If you check the assembly output, yo
   66 0034 F52F      		mov r31,r21
   67 0036 1083      		st Z,__zero_reg__
 ```
-If you consider, for example from the instruction at memory addres 002c (signature loaded into CCP) to instruction at 0036, when 0 is loaded into CLKMSR, there are obviously more than 4 instructions.
-The compiler is doing something weird to my eyes. Of course, to an expert, this would seem totally expected. 
-At first loads the immediate 60 in r20. 60 is the address of the CCP register. Then loads zero into r21. 
-At this point loads the immediate -40 (which is 0xD8 in two's complement) into r22.
-Then moves r20 and r21 to r30 and r31. These two destination registers are at least a bit special, because they are *address registers*. r31 is the high byte, and r30 is the low byte of an address. Toghether, the asm refers to them with "Z". 
-Then, loads 0xD8 (stored in r22) to the CCP register, addressed by the Z register.  
-Why not loading everything directly to the Z register? Compilation weirdness.
+If you consider, for example from the instruction at memory addres 002c (signature loaded into CCP) to instruction at 0036, when 0 is loaded into CLKMSR, there are obviously more than 4 instructions.  
+The compiler is doing something weird to my eyes. Of course, to an expert, this would seem totally expected.  
+At first loads the immediate 60 in r20. 60 is the address of the CCP register. Then loads zero into r21.  
+At this point loads the immediate -40 (which is 0xD8 in two's complement) into r22.  
+Then moves r20 and r21 to r30 and r31. These two destination registers are at least a bit special, because they are *address registers*. r31 is the high byte, and r30 is the low byte of an address. Toghether, the asm refers to them with "Z".  
+Then, loads 0xD8 (stored in r22) to the CCP register, addressed by the Z register.   
+Why not loading everything directly to the Z register? Compilation weirdness.  
 
 If you take the same code and compile it with the `-Os` option, you get:
 ```
