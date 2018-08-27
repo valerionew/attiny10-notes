@@ -114,5 +114,5 @@ If you prefer, you can take two alternative ways:
 ## Sources
 [1]: [How to fix device permissions for the USBasp programmer - Andreas Rohner](https://andreasrohner.at/posts/Electronics/How-to-fix-device-permissions-for-the-USBasp-programmer/)  
 [2]: [gist: arturcieslak/50-embedded_devices.rules](https://gist.github.com/arturcieslak/f097ad370d1fc90ba98a)  
-[3]: [ATtiny10 Datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-8127-AVR-8-bit-Microcontroller-ATtiny4-ATtiny5-ATtiny9-ATtiny10_Datasheet.pdf)
-[4]: [SYSTutorials - Generating Mixed Source and Assembly List using GCC](https://www.systutorials.com/240/generate-a-mixed-source-and-assembly-listing-using-gcc/)
+[3]: [ATtiny10 Datasheet](http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-8127-AVR-8-bit-Microcontroller-ATtiny4-ATtiny5-ATtiny9-ATtiny10_Datasheet.pdf)  
+[4]: [SYSTutorials - Generating Mixed Source and Assembly List using GCC](https://www.systutorials.com/240/generate-a-mixed-source-and-assembly-listing-using-gcc/)  
