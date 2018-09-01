@@ -44,7 +44,7 @@ You can do this in multiple ways. I found that the way that i prefer is:
 ```
 avr-gcc -Os -g -Wa,-adhln -mmcu=attiny10 $MYPROGRAM
 ```
-It meshes the assembly lines with the c lines, so that you can see what's beeing compiled to what.  
+It meshes the assembly lines with the c lines, so that you can see what's being compiled to what.  
 Source [[4]](#sources)
 
 ## Setting the prescaler
