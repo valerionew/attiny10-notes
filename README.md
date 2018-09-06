@@ -55,7 +55,7 @@ change the CLKPS bits:
 > 1. Write the signature for change enable of protected I/O register to register CCP
 > 2. Within four instruction cycles, write the desired value to CLKPS bits
 
-Where "the signature" is `0xD8`. It is a neat safety feature, but it can get tou in trouble. 
+Where "the signature" is `0xD8`. It is a neat safety feature, but it can get you in trouble. 
 The first thing i did was:
 ```
   char oldsreg = SREG;   // save the interrupt setting register to oldsreg
