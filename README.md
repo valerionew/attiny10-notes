@@ -91,7 +91,7 @@ At first loads the immediate 60 in r20. 60 is the address of the CCP register. T
 At this point loads the immediate -40 (which is 0xD8 in two's complement) into r22.  
 Then moves r20 and r21 to r30 and r31. These two destination registers are at least a bit special, because they are *address registers*. r31 is the high byte, and r30 is the low byte of an address. Toghether, the asm refers to them with "Z".  
 Then, loads 0xD8 (stored in r22) to the CCP register, addressed by the Z register.
-Why not loading everything directly to the Z register? 
+Why not loading everything directly to the Z register, or even directly to CCP? 
 Remember that this mcu is 8bit, with 8bit datapath and 16bit address. this means that to store a value at a generic address, we can't build the destination address -the content of the Z register - directly. so we construct it piecewise,one byte at the time, and then use the result for an indirect addressing store.
 The extra steps are due to the optimization level: at no optimization, the compiler is doing a 1 to 1 translation of the code, and in the code we are specifying a 16 bit constant for the address (hidden in the macros defining CLKMSR and CCP), so this needs to be constructed. But the routine that generate the code to load 16bit does not know that the routine to generate a store prefer to use the Z register, so this sequence of code is generated.
 
