@@ -1,17 +1,17 @@
 /*
-Valerio Nappi (5N44P) https://github.com/5N44P/attiny10-notes
+Valerio Nappi (valerionew) https://github.com/valerionew/attiny10-notes
 
 This software produces a square wave at circa 38kHz (can be tuned via the preloaded
 value into OCR0A) and inverts the signal on PB2 (pin change interrupt) to PB1
 It was designed to drive an IR led and a demodulating receiver, also inverting the
 demod output, as part as a soldering iron holder sensing device, developed for
-the unisolder open source soldering ironn (https://github.com/5N44P/unisolder-notes)
+the unisolder open source soldering ironn (https://github.com/valerionew/unisolder-notes)
 
 ------------------------------------WARNING------------------------------------
 WARNING: the system clock prescaler change needs the -Os optimization compiling
 optimization. Otherwise the signature loading into CPP won't be timely (4 clocks)
 See:
-https://github.com/5N44P/attiny10-notes#setting-the-prescaler
+https://github.com/valerionew/attiny10-notes#setting-the-prescaler
 for reference
 ------------------------------------WARNING------------------------------------
 */
